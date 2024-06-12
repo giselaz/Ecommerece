@@ -26,5 +26,10 @@ const updateProduct = async (req:Request, res:Response) =>{
     res.json({message: 'Product Updated successfully',updatedProduct});
 }
 
+const getProductBySku = async (req:Request  , res:Response) =>{
 
-export default {createProduct,getAllProducts,updateProduct}
+  const product = await productService.getProductBySku(req.params.sku);
+  res.json(product);
+}
+
+export default {createProduct,getAllProducts,updateProduct,getProductBySku}
